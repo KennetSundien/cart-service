@@ -1,0 +1,25 @@
+version: '3'
+services:
+  cart-service:
+    image: kennet/cart-service
+    build: .
+    networks:
+      - backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - backend
+    ports:
+      - "27017:27017"
+volumes:
+ mongodata:
+networks:
+  backend:
+    driver: bridge
