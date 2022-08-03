@@ -9,6 +9,6 @@ const schema = new mongoose.Schema({
   items: {
     type: [CartItem],
     required: true
-  },
+  }
 })
 module.exports = mongoose.model('Cart', schema);

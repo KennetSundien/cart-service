@@ -5,9 +5,11 @@ const bodyparser = require('body-parser');
 router.use(bodyparser.json())
 
 router.get('/', controller.list);
-router.get('/:id', controller.single);
+router.get('/:cartId', controller.single);
 router.post('/', controller.create);
-router.put('/:id', controller.update);
-router.delete('/:id', controller.remove);
+router.put('/:cartId', controller.update);
+router.put('/:cartId/update-item', controller.updateItem);
+router.delete('/:cartId', controller.remove);
+router.delete('/:cartId/remove-item/:productId', controller.removeItem);
 
 module.exports = router;
